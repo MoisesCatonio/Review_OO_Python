@@ -22,8 +22,9 @@ class Figura_Complexa(Figura_Geometrica):
     figuras_determinantes = []
     area_total = 0
 
-    def adicionarFigura(self, figura):
-        self.figuras_determinantes.append(figura)
+    def __init__(self, *args):
+        for element in args:
+            self.figuras_determinantes.append(element)
     
     def calcularAreaComplexa(self):
         for figura in self.figuras_determinantes:
@@ -36,11 +37,6 @@ quad2 = Figura_Geometrica(10)
 ret1 = Figura_Geometrica(2,7)
 ret2 = Figura_Geometrica(5,3)
 
-calculador = Figura_Complexa()
-
-calculador.adicionarFigura(quad1)
-calculador.adicionarFigura(quad2)
-calculador.adicionarFigura(ret1)
-calculador.adicionarFigura(ret2)
+calculador = Figura_Complexa(quad1, quad2, ret1, ret2)
 
 calculador.calcularAreaComplexa()
